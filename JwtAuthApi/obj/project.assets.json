@@ -150,6 +150,22 @@
           }
         }
       },
+      "Scalar.AspNetCore/2.12.18": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/Scalar.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Scalar.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "System.IdentityModel.Tokens.Jwt/8.15.0": {
         "type": "package",
         "dependencies": {
@@ -372,6 +388,25 @@
         "microsoft.openapi.nuspec"
       ]
     },
+    "Scalar.AspNetCore/2.12.18": {
+      "sha512": "SVO8iTlSZPxAklOl8BROup3GLNknLseWKMgLweSG7xyuAydnNt76YmKQfrIiRXmw7mx0z3zCcd0ZRva+vkPn0w==",
+      "type": "package",
+      "path": "scalar.aspnetcore/2.12.18",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net10.0/Scalar.AspNetCore.dll",
+        "lib/net10.0/Scalar.AspNetCore.xml",
+        "lib/net8.0/Scalar.AspNetCore.dll",
+        "lib/net8.0/Scalar.AspNetCore.xml",
+        "lib/net9.0/Scalar.AspNetCore.dll",
+        "lib/net9.0/Scalar.AspNetCore.xml",
+        "scalar.aspnetcore.2.12.18.nupkg.sha512",
+        "scalar.aspnetcore.nuspec"
+      ]
+    },
     "System.IdentityModel.Tokens.Jwt/8.15.0": {
       "sha512": "dpodi7ixz6hxK8YCBYAWzm0IA8JYXoKcz0hbCbNifo519//rjUI0fBD8rfNr+IGqq+2gm4oQoXwHk09LX5SqqQ==",
       "type": "package",
@@ -403,6 +438,7 @@
     "net10.0": [
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 10.0.2",
       "Microsoft.AspNetCore.OpenApi >= 10.0.2",
+      "Scalar.AspNetCore >= 2.12.18",
       "System.IdentityModel.Tokens.Jwt >= 8.15.0"
     ]
   },
@@ -463,6 +499,10 @@
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[10.0.2, )"
+          },
+          "Scalar.AspNetCore": {
+            "target": "Package",
+            "version": "[2.12.18, )"
           },
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",

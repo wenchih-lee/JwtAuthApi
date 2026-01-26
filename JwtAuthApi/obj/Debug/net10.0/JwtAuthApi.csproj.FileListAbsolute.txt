@@ -33,10 +33,12 @@ D:\Dev\Learning\JwtAuthApi\JwtAuthApi\obj\Debug\net10.0\staticwebassets.build.js
 D:\Dev\Learning\JwtAuthApi\JwtAuthApi\obj\Debug\net10.0\staticwebassets.development.json
 D:\Dev\Learning\JwtAuthApi\JwtAuthApi\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 D:\Dev\Learning\JwtAuthApi\JwtAuthApi\obj\Debug\net10.0\swae.build.ex.cache
-D:\Dev\Learning\JwtAuthApi\JwtAuthApi\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 D:\Dev\Learning\JwtAuthApi\JwtAuthApi\obj\Debug\net10.0\JwtAuthApi.csproj.Up2Date
 D:\Dev\Learning\JwtAuthApi\JwtAuthApi\obj\Debug\net10.0\JwtAuthApi.dll
 D:\Dev\Learning\JwtAuthApi\JwtAuthApi\obj\Debug\net10.0\refint\JwtAuthApi.dll
 D:\Dev\Learning\JwtAuthApi\JwtAuthApi\obj\Debug\net10.0\JwtAuthApi.pdb
 D:\Dev\Learning\JwtAuthApi\JwtAuthApi\obj\Debug\net10.0\JwtAuthApi.genruntimeconfig.cache
 D:\Dev\Learning\JwtAuthApi\JwtAuthApi\obj\Debug\net10.0\ref\JwtAuthApi.dll
+D:\Dev\Learning\JwtAuthApi\JwtAuthApi\obj\Debug\net10.0\JwtAuthApi.sourcelink.json
+D:\Dev\Learning\JwtAuthApi\JwtAuthApi\bin\Debug\net10.0\Scalar.AspNetCore.dll
+D:\Dev\Learning\JwtAuthApi\JwtAuthApi\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

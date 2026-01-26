@@ -1,9 +1,9 @@
-﻿using JwtAuthApi.Models;
+using JwtAuthApi.DTOs;
 
 namespace JwtAuthApi.Services.Interfaces
 {
     public interface IUserService
     {
-        User? ValidateUser(string username, string password);
+        UserDto? ValidateUser(string username, string password);
     }
 }

@@ -1,9 +1,13 @@
 
+using JwtAuthApi.Helpers;
 using JwtAuthApi.Options;
+using JwtAuthApi.Repositories;
+using JwtAuthApi.Repositories.Interfaces;
 using JwtAuthApi.Services;
 using JwtAuthApi.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Scalar.AspNetCore;
 using System.Text;
 
 namespace JwtAuthApi
@@ -14,15 +18,14 @@ namespace JwtAuthApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // ========== 1. ³]©wÃş§O (Options Pattern) ==========
-            // µù¥UOptions Pattern
+            // ï¿½ï¿½ï¿½UOptions Pattern
             builder.Services.Configure<JwtSettings>(
                 builder.Configuration.GetSection("JwtSettings")
             );
 
-            // ========== 2. ·~°ÈªA°È (ª½±µµù¥U) ==========
-            // µù¥UJWTªA°È
-            builder.Services.AddScoped<IJwtService, JwtService>();
+            // è¨»å†Šæœå‹™
+            builder.Services.AddScoped<JwtHelpers>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
 
             var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
@@ -37,14 +40,14 @@ namespace JwtAuthApi
             {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateIssuer = true,              // ÅçÃÒµo¦æªÌ
-                    ValidateAudience = true,            // ÅçÃÒ±µ¦¬ªÌ
-                    ValidateLifetime = true,            // ÅçÃÒ¹L´Á®É¶¡
-                    ValidateIssuerSigningKey = true,    // ÅçÃÒÃ±³¹
+                    ValidateIssuer = true,              // ï¿½ï¿½ï¿½Òµoï¿½ï¿½ï¿½
+                    ValidateAudience = true,            // ï¿½ï¿½ï¿½Ò±ï¿½ï¿½ï¿½ï¿½ï¿½
+                    ValidateLifetime = true,            // ï¿½ï¿½ï¿½Ò¹Lï¿½ï¿½ï¿½É¶ï¿½
+                    ValidateIssuerSigningKey = true,    // ï¿½ï¿½ï¿½ï¿½Ã±ï¿½ï¿½
                     ValidIssuer = jwtSettings.Issuer,
                     ValidAudience = jwtSettings.Audience,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ClockSkew = TimeSpan.Zero           // ²¾°£¹w³]ªº 5 ¤ÀÄÁ®É¶¡°¾²¾
+                    ClockSkew = TimeSpan.Zero 
                 };
             });
 
@@ -62,6 +65,7 @@ namespace JwtAuthApi
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
+                app.MapScalarApiReference();
             }
 
             app.UseHttpsRedirection();

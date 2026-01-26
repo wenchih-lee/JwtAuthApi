@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.2",
           "Microsoft.AspNetCore.OpenApi": "10.0.2",
+          "Scalar.AspNetCore": "2.12.18",
           "System.IdentityModel.Tokens.Jwt": "8.15.0"
         },
         "runtime": {
@@ -110,6 +111,14 @@
           }
         }
       },
+      "Scalar.AspNetCore/2.12.18": {
+        "runtime": {
+          "lib/net10.0/Scalar.AspNetCore.dll": {
+            "assemblyVersion": "2.12.18.0",
+            "fileVersion": "2.12.18.0"
+          }
+        }
+      },
       "System.IdentityModel.Tokens.Jwt/8.15.0": {
         "dependencies": {
           "Microsoft.IdentityModel.JsonWebTokens": "8.15.0",
@@ -192,6 +201,13 @@
       "sha512": "sha512-GGYLfzV/G/ct80OZ45JxnWP7NvMX1BCugn/lX7TH5o0lcVaviavsLMTxmFV2AybXWjbi3h6FF1vgZiTK6PXndw==",
       "path": "microsoft.openapi/2.0.0",
       "hashPath": "microsoft.openapi.2.0.0.nupkg.sha512"
+    },
+    "Scalar.AspNetCore/2.12.18": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SVO8iTlSZPxAklOl8BROup3GLNknLseWKMgLweSG7xyuAydnNt76YmKQfrIiRXmw7mx0z3zCcd0ZRva+vkPn0w==",
+      "path": "scalar.aspnetcore/2.12.18",
+      "hashPath": "scalar.aspnetcore.2.12.18.nupkg.sha512"
     },
     "System.IdentityModel.Tokens.Jwt/8.15.0": {
       "type": "package",

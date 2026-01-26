@@ -1,20 +1,32 @@
-﻿using JwtAuthApi.Models;
+using JwtAuthApi.DTOs;
+using JwtAuthApi.Repositories.Interfaces;
 using JwtAuthApi.Services.Interfaces;
 
 namespace JwtAuthApi.Services
 {
     public class UserService : IUserService
     {
-        private static readonly List<User> _users = new()
-        {
-            new User { Id = "1", Username = "admin", Password = "admin123", Role = "Admin" },
-            new User { Id = "2", Username = "user", Password = "user123", Role = "User" }
-        };
+        private readonly IUserRepository _userRepository;
 
-        public User? ValidateUser(string username, string password)
+        public UserService(IUserRepository userRepository)
         {
-            return _users.FirstOrDefault(u =>
-                u.Username == username && u.Password == password);
+            _userRepository = userRepository;
+        }
+
+        public UserDto? ValidateUser(string username, string password)
+        {
+            var user = _userRepository.GetByUsernameAndPassword(username, password);
+
+            if (user == null)
+                return null;
+
+            // 將 Entity 轉換為 DTO (不包含密碼)
+            return new UserDto
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Role = user.Role
+            };
         }
     }
 }

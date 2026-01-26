@@ -1,18 +1,18 @@
 ﻿using JwtAuthApi.Options;
-using JwtAuthApi.Services.Interfaces;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace JwtAuthApi.Services
+namespace JwtAuthApi.Helpers
 {
-    public class JwtService : IJwtService
+    public class JwtHelpers
     {
         private readonly JwtSettings _jwtSettings;
 
-        public JwtService(IOptions<JwtSettings> jwtSettings)
+        public JwtHelpers(IOptions<JwtSettings> jwtSettings)
         {
             _jwtSettings = jwtSettings.Value;
         }
@@ -20,7 +20,7 @@ namespace JwtAuthApi.Services
         public string GenerateToken(string userId, string userName, string role)
         {
             // 建立payload
-            var claims = new[]
+            var claims = new Claim[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, userId),
                 new Claim(JwtRegisteredClaimNames.Name, userName),
