@@ -17,10 +17,8 @@ namespace JwtAuthApi.Services
         {
             var user = _userRepository.GetByUsernameAndPassword(username, password);
 
-            if (user == null)
-                return null;
+            if (user == null) return null;
 
-            // 將 Entity 轉換為 DTO (不包含密碼)
             return new UserDto
             {
                 Id = user.Id,

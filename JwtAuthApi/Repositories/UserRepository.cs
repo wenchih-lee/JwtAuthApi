@@ -10,13 +10,12 @@ namespace JwtAuthApi.Repositories
         {
             new User { Id = "1", Username = "Vince", Password = "vince123", Role = "Admin" },
             new User { Id = "2", Username = "Jimmy", Password = "jimmy456", Role = "User" },
-            new User { Id = "3", Username = "Ian", Password = "Ian789", Role = "User" },
+            new User { Id = "3", Username = "Ian", Password = "ian789", Role = "User" },
         };
 
         public User? GetByUsernameAndPassword(string username, string password)
         {
-            return _users.FirstOrDefault(u =>
-                u.Username == username && u.Password == password);
+            return _users.FirstOrDefault(u => u.Username == username && u.Password == password);
         }
     }
 }

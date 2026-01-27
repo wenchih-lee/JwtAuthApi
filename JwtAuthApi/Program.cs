@@ -18,10 +18,8 @@ namespace JwtAuthApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // ���UOptions Pattern
-            builder.Services.Configure<JwtSettings>(
-                builder.Configuration.GetSection("JwtSettings")
-            );
+            // Options Pattern
+            builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
             // 註冊服務
             builder.Services.AddScoped<JwtHelpers>();

@@ -31,7 +31,7 @@ namespace JwtAuthApi.Helpers
             // 建立對稱式金鑰
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
 
-            //使用 HMAC-SHA256 演算法
+            // 使用 HMAC-SHA256 演算法
             var credentails = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             // 建立token
