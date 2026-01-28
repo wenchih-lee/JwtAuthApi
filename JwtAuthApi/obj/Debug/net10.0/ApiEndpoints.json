@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "JwtAuthApi.Controllers.AdminController",
+    "Method": "GetAdminData",
+    "RelativePath": "api/Admin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "JwtAuthApi.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",

@@ -1,5 +1,6 @@
 
 using JwtAuthApi.Helpers;
+using JwtAuthApi.Middlewares;
 using JwtAuthApi.Options;
 using JwtAuthApi.Repositories;
 using JwtAuthApi.Repositories.Interfaces;
@@ -38,10 +39,10 @@ namespace JwtAuthApi
             {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateIssuer = true,              // ���ҵo���
-                    ValidateAudience = true,            // ���ұ�����
-                    ValidateLifetime = true,            // ���ҹL���ɶ�
-                    ValidateIssuerSigningKey = true,    // ����ñ��
+                    ValidateIssuer = true,              // 驗證發行者
+                    ValidateAudience = true,            // 驗證接收者
+                    ValidateLifetime = true,            // 驗證過期時間
+                    ValidateIssuerSigningKey = true,    // 驗證簽章
                     ValidIssuer = jwtSettings.Issuer,
                     ValidAudience = jwtSettings.Audience,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
@@ -58,6 +59,8 @@ namespace JwtAuthApi
             builder.Services.AddOpenApi();
 
             var app = builder.Build();
+
+            app.UseMiddleware<ExceptionMiddleware>();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

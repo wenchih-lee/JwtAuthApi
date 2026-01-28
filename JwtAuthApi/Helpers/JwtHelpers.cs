@@ -17,14 +17,14 @@ namespace JwtAuthApi.Helpers
             _jwtSettings = jwtSettings.Value;
         }
 
-        public string GenerateToken(string userId, string userName, string role)
+        public string GenerateToken(string userId, string userName, string userRole)
         {
             // 建立payload
             var claims = new Claim[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, userId),
                 new Claim(JwtRegisteredClaimNames.Name, userName),
-                new Claim(ClaimTypes.Role, role),
+                new Claim(ClaimTypes.Role, userRole),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 

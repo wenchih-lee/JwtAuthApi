@@ -11,10 +11,11 @@ namespace JwtAuthApi.Controllers
     {
         [HttpGet]
         [Authorize]
-        public ActionResult GetProfile()
+        public IActionResult GetProfile()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var userName = User.FindFirstValue("name");
+            var userRole = User.FindFirstValue(ClaimTypes.Role);
 
             if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(userName))
             {
@@ -24,7 +25,8 @@ namespace JwtAuthApi.Controllers
             var profile = new UserProfileResponse
             {
                 UserId = userId,
-                UserName = userName ?? string.Empty
+                UserName = userName ?? string.Empty,
+                UserRole = userRole
             };
 
             return Ok(profile);
