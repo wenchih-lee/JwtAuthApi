@@ -17,5 +17,10 @@ namespace JwtAuthApi.Repositories
         {
             return _users.FirstOrDefault(u => u.Username == username && u.Password == password);
         }
+
+        public User? GetUserById(string userId)
+        {
+            return _users.FirstOrDefault(u => u.Id == userId);
+        }
     }
 }

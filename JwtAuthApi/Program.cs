@@ -26,6 +26,8 @@ namespace JwtAuthApi
             builder.Services.AddScoped<JwtHelpers>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
+            builder.Services.AddSingleton<ILoginLogService, LoginLogService>();
 
             var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
             var key = Encoding.UTF8.GetBytes(jwtSettings!.Key);

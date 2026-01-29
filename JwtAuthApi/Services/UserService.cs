@@ -26,5 +26,19 @@ namespace JwtAuthApi.Services
                 Role = user.Role
             };
         }
+
+        public UserDto? GetUserById(string userId)
+        {
+            var user = _userRepository.GetUserById(userId);
+
+            if (user == null) return null;
+
+            return new UserDto
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Role = user.Role
+            };
+        }
     }
 }

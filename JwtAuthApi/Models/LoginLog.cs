@@ -1,6 +1,6 @@
 ﻿namespace JwtAuthApi.Models
 {
-    public class LoingLog
+    public class LoginLog
     {
         public string Username { get; set; } = string.Empty;
         public bool IsSuccess { get; set; }
