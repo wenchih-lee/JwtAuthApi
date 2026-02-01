@@ -1,6 +1,7 @@
 ﻿using JwtAuthApi.Models;
+using JwtAuthApi.Services.Interfaces;
 
-namespace JwtAuthApi.Services.Interfaces
+namespace JwtAuthApi.Services
 {
     public class LoginLogService : ILoginLogService
     {
