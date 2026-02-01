@@ -42,11 +42,40 @@ namespace JwtAuthApi.Controllers
 
             _refreshTokenService.SaveRefreshToken(user.Id, refreshToken);
 
-            return Ok(new TokenResponse 
-            { 
+            return Ok(new TokenResponse
+            {
                 AccessToken = accesstoken,
                 RefreshToken = refreshToken
             });
+        }
+
+        [HttpPost("login-cookie")]
+        public IActionResult LoginWithCookie([FromBody] LoginRequest request)
+        {
+            var clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+
+            var user = _userService.ValidateUser(request.Username, request.Password);
+
+            if (user == null)
+            {
+                _loginLogService.LogLogin(request.Username, false, clientIp);
+                return Unauthorized(new { message = "帳號或密碼錯誤" });
+            }
+
+            _loginLogService.LogLogin(request.Username, true, clientIp);
+
+            var accesstoken = _jwtHelper.GenerateToken(user.Id, user.Username, user.Role);
+
+            // 設定HttpOnly Cookie
+            Response.Cookies.Append("AccessToken", accesstoken, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Strict,
+                Expires = DateTimeOffset.UtcNow.AddMinutes(60)
+            });
+
+            return Ok(new { message = "登入成功" });
         }
 
         [HttpPost("refresh")]

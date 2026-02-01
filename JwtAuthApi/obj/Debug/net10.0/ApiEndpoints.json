@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "JwtAuthApi.Controllers.AuthController",
+    "Method": "LoginWithCookie",
+    "RelativePath": "api/Auth/login-cookie",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "JwtAuthApi.Models.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JwtAuthApi.Controllers.AuthController",
     "Method": "GetLogs",
     "RelativePath": "api/Auth/logs",
     "HttpMethod": "GET",

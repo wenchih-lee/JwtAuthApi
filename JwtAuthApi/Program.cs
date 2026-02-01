@@ -50,6 +50,21 @@ namespace JwtAuthApi
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ClockSkew = TimeSpan.Zero 
                 };
+
+                // 支援從 Cookie 讀取 Token
+                options.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        // 優先從 Header 讀取
+                        if (string.IsNullOrEmpty(context.Token))
+                        {
+                            // 如果 Header 沒有，從 Cookie 讀取
+                            context.Token = context.Request.Cookies["AccessToken"];
+                        }
+                        return Task.CompletedTask;
+                    }
+                };
             });
 
             // Add services to the container.
